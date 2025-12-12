@@ -88,7 +88,7 @@
     }
     
     int turnVent = adc_read(1);
-    if(turnVent < 188){
+    if(turnVent < 188 && state != 0){
       //turn motor right
       if(ventCheck){
         ventCheck = false;
@@ -106,11 +106,11 @@
         turnVent = adc_read(1);
       }
     }
-    else if(turnVent >= 188 && turnVent <= 628){
+    else if(turnVent >= 188 && turnVent <= 628 && state != 0){
       //dont turn vent
       ventCheck = true;
     }
-    else if(turnVent > 628){
+    else if(turnVent > 628 && state != 0){
       //turn motor left
       if(ventCheck){
         ventCheck = false;
@@ -390,4 +390,3 @@
       putChar(t[i]);
     }
   }
-
